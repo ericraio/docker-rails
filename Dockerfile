@@ -13,6 +13,12 @@ RUN apt-get install -qq -y nodejs
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #################################
+# NPM install globals
+#################################
+
+RUN npm install bower -g
+
+#################################
 # Rails
 #################################
 
@@ -27,7 +33,7 @@ ONBUILD WORKDIR /app
 ONBUILD ADD Gemfile /app/Gemfile
 ONBUILD ADD Gemfile.lock /app/Gemfile.lock
 
-ONBUILD RUN bundle install
+ONBUILD RUN bundle install --without development test staging
 
 ONBUILD ADD . /app
 
