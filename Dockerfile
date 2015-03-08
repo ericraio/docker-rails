@@ -9,6 +9,7 @@ RUN apt-get update -qq -y
 #   -- http://stackoverflow.com/questions/26320901/cannot-install-nodejs-usr-bin-env-node-no-such-file-or-directory
 #################################
 RUN apt-get install -qq -y nodejs
+RUN apt-get install -qq -y npm
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
