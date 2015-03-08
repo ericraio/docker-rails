@@ -14,12 +14,6 @@ RUN apt-get install -qq -y npm
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #################################
-# NPM install globals
-#################################
-
-RUN npm install bower -g
-
-#################################
 # Rails
 #################################
 
