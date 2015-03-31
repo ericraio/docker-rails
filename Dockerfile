@@ -28,7 +28,7 @@ ONBUILD WORKDIR /app
 ONBUILD ADD Gemfile /app/Gemfile
 ONBUILD ADD Gemfile.lock /app/Gemfile.lock
 
-ONBUILD RUN bundle install --without development test staging
+ONBUILD RUN bundle install --local --without development test staging
 
 ONBUILD ADD . /app
 
