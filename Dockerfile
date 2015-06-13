@@ -1,4 +1,4 @@
-FROM carsocial/ruby:2.1.5
+FROM carsocial/ruby:2.2.2
 
 ENV RAILS_ENV production
 
