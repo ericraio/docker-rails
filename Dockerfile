@@ -32,8 +32,6 @@ ONBUILD RUN bundle install --deployment
 
 ONBUILD ADD . /app
 
-ONBUILD VOLUME /app/public
-
 ONBUILD RUN mkdir tmp/sockets -p
 ONBUILD RUN mkdir tmp/pids -p
 ONBUILD RUN mkdir tmp/cache -p
