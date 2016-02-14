@@ -17,7 +17,7 @@ RUN ln -s /usr/bin/nodejs /usr/bin/node
 # Rails
 #################################
 
-RUN apt-get install -qq -y imagemagick libmagickcore-dev libmagickwand-dev libjpeg-dev libpng-dev libtiff-dev libwebp-dev
+RUN apt-get install -qq -y imagemagick libmagickcore-dev libmagickwand-dev libjpeg-dev libpng-dev libtiff-dev libwebp-dev mysql-server mysql-client libmysqlclient-dev
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
