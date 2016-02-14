@@ -22,6 +22,9 @@ RUN apt-get install -qq -y imagemagick libmagickcore-dev libmagickwand-dev libjp
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN mysql_install_db
+RUN mysql_secure_installation
+
 ONBUILD RUN mkdir /app
 ONBUILD WORKDIR /app
 
