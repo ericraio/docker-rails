@@ -13,8 +13,6 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt-get clean && apt-get update 
 RUN apt-get install -qq -y yarn nodejs
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node
-
 #################################
 # Rails
 #################################
