@@ -36,6 +36,8 @@ ONBUILD WORKDIR /app
 ONBUILD ADD Gemfile /app/Gemfile
 ONBUILD ADD Gemfile.lock /app/Gemfile.lock
 
+ONBUILD RUN yarn install --production --pure-lockfile --silent --no-progress --no-audit --no-optional
+
 ONBUILD RUN bundle install --deployment
 
 ONBUILD ADD . /app
