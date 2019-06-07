@@ -5,9 +5,9 @@ ENV RAILS_ENV production
 RUN add-apt-repository ppa:eugenesan/ppa && apt-get update -qq -y
 
 #################################
-# Symlinking Nodejs for ubuntu
-#   -- http://stackoverflow.com/questions/26320901/cannot-install-nodejs-usr-bin-env-node-no-such-file-or-directory
+# Nodejs
 #################################
+
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get clean && apt-get update 
