@@ -11,7 +11,8 @@ RUN add-apt-repository ppa:eugenesan/ppa && apt-get update -qq -y
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get clean && apt-get update 
-RUN apt-get install -qq -y yarn nodejs npm
+RUN apt-get install -qq -y libssl1.0-dev nodejs-dev node-gyp
+RUN apt-get install -qq -y yarn npm
 
 #################################
 # Rails
