@@ -28,20 +28,17 @@ RUN apt-get install -qq -y bison imagemagick libmagickcore-dev libmagickwand-dev
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ONBUILD RUN mkdir /app
-ONBUILD WORKDIR /app
+ONBUILD COPY Gemfile* /tmp/
+ONBUILD COPY package.json /tmp/
+ONBUILD COPY yarn.lock /tmp/
+ONBUILD WORKDIR /tmp
+ONBUILD RUN yarn install --pure-lockfile --silent --no-progress --no-audit --no-optional; exit 0
+ONBUILD RUN bundle install
 
-ONBUILD ADD Gemfile /app/Gemfile
-ONBUILD ADD Gemfile.lock /app/Gemfile.lock
-
-ONBUILD ADD package.json /app/package.json
-ONBUILD ADD yarn.lock /app/yarn.lock
-
-ONBUILD RUN yarn install --production --pure-lockfile --silent --no-progress --no-audit --no-optional; exit 0
-
-ONBUILD RUN bundle install --deployment
-
-ONBUILD ADD . /app
+ONBUILD ENV app /app
+ONBUILD RUN mkdir $app
+ONBUILD WORKDIR $app
+ONBUILD ADD . $app
 
 ONBUILD RUN mkdir tmp/sockets -p
 ONBUILD RUN mkdir tmp/pids -p
