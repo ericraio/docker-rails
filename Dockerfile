@@ -1,7 +1,5 @@
 FROM duodealer/ruby:latest
 
-ENV RAILS_ENV production
-
 RUN add-apt-repository ppa:eugenesan/ppa && apt-get update -qq -y
 
 #################################
