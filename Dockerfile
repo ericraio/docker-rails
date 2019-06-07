@@ -18,7 +18,7 @@ RUN apt-get install -qq -y yarn nodejs
 #################################
 
 # Libpostal
-RUN cd /tmp && git clone https://github.com/openvenues/libpostal && cd ./libpostal && ./bootstrap.sh && ./configure --datadir=/usr/local/share/ && make -j4 && sudo make install && sudo ldconfig
+RUN cd /tmp && git clone https://github.com/openvenues/libpostal && cd ./libpostal && ./bootstrap.sh && ./configure --datadir=/usr/local/share/ && make -j4 && make install && ldconfig
 
 RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | apt-key add -
