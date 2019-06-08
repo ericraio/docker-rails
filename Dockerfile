@@ -32,7 +32,6 @@ ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
 ONBUILD COPY yarn.lock /tmp/
 ONBUILD WORKDIR /tmp
-ONBUILD RUN yarn install --pure-lockfile --silent --no-progress --no-audit --no-optional; exit 0
 ONBUILD RUN bundle install
 
 ONBUILD ENV app /app
