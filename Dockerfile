@@ -1,5 +1,6 @@
 FROM duodealer/ruby:latest
 
+ENV BABEL_ENV production
 #################################
 # Dependencies
 #################################
