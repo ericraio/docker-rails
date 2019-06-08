@@ -6,7 +6,7 @@ ENV RAILS_ENV production
 # Dependencies
 #################################
 
-RUN apk add --no-cache --virtual nodejs-current curl automake libtool pkgconfig
+RUN apk add --no-cache --virtual nodejs-current curl automake libtool pkgconfig autoreconf
 
 #################################
 # Rails
