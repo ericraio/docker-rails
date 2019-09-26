@@ -13,7 +13,8 @@ RUN apk update && \
   libtool \
   pkgconfig \
   autoconf \
-  libpostal
+  libpostal \
+  postgresql-libs
 
 ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
