@@ -6,6 +6,8 @@ ENV RAILS_ENV production
 # Dependencies
 #################################
 
+ENV PATH="/usr/bin/:${PATH}"
+
 RUN apk add --no-cache --virtual nodejs-current curl automake libtool pkgconfig autoconf
 
 #################################
