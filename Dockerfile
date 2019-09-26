@@ -6,6 +6,7 @@ ENV RAILS_ENV production
 RUN apk update && \
   apk upgrade && \
   apk add \
+  --no-cache \
   --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
   nodejs-current \
   curl \
@@ -14,6 +15,7 @@ RUN apk update && \
   pkgconfig \
   autoconf \
   libpostal \
+  postgresql-dev \
   postgresql-libs
 
 ONBUILD COPY Gemfile* /tmp/
