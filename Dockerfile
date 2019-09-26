@@ -3,9 +3,12 @@ FROM duodealer/ruby:latest
 ENV BABEL_ENV production
 ENV RAILS_ENV production
 
-RUN apk add --no-cache --virtual \
+RUN apk update && \
+  apk upgrade && \
+  apk add \
   nodejs-current \
-  curl automake \
+  curl \
+  automake \
   libtool \
   pkgconfig \
   autoconf \
