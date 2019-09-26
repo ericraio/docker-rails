@@ -6,21 +6,14 @@ ENV RAILS_ENV production
 RUN apk update && \
   apk upgrade && \
   apk add \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
   nodejs-current \
   curl \
   automake \
   libtool \
   pkgconfig \
   autoconf \
-  && \
-  cd /tmp && \
-  git clone https://github.com/openvenues/libpostal && \
-  cd ./libpostal && \
-  ./bootstrap.sh && \
-  ./configure --datadir=/usr/local/share/ && \
-  make -j4 && \
-  make install && \
-  ldconfig
+  libpostal
 
 ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
