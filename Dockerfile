@@ -2,20 +2,22 @@ FROM duodealer/ruby:latest
 
 ENV BABEL_ENV production
 ENV RAILS_ENV production
-#################################
-# Dependencies
-#################################
 
-ENV PATH="/usr/bin/:${PATH}"
-
-RUN apk add --no-cache --virtual nodejs-current curl automake libtool pkgconfig autoconf
-
-#################################
-# Rails
-#################################
-
-# Libpostal
-RUN cd /tmp && git clone https://github.com/openvenues/libpostal && cd ./libpostal && ./bootstrap.sh && ./configure --datadir=/usr/local/share/ && make -j4 && make install && ldconfig
+RUN apk add --no-cache --virtual \
+  nodejs-current \
+  curl automake \
+  libtool \
+  pkgconfig \
+  autoconf \
+  && \
+  cd /tmp && \
+  git clone https://github.com/openvenues/libpostal && \
+  cd ./libpostal && \
+  ./bootstrap.sh && \
+  ./configure --datadir=/usr/local/share/ && \
+  make -j4 && \
+  make install && \
+  ldconfig
 
 ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
