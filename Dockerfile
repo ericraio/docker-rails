@@ -5,9 +5,6 @@ ENV RAILS_ENV production
 ARG COMMIT
 ENV COMMIT ${COMMIT:-master}
 
-RUN mkdir /libpostal/
-COPY ./*.sh /libpostal/
-
 RUN apk \
   --update \
   --no-cache \
@@ -24,9 +21,11 @@ RUN apk \
   make \
   git \
   postgresql-dev \
-  postgresql-libs && \
-  cd /libpostal/ && \
-  git clone https://github.com/openvenues/libpostal -b $COMMIT . && \
+  postgresql-libs
+  
+RUN git clone https://github.com/openvenues/libpostal -b $COMMIT
+COPY ./*.sh /libpostal/ 
+RUN cd /libpostal/ && \
   ./build_libpostal.sh
 
 ONBUILD COPY Gemfile* /tmp/
