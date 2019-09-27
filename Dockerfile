@@ -12,7 +12,6 @@ RUN set -ex && \
   apk \
   add \
   --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
-  .build-deps \
   nodejs-current \
   curl \
   automake \
