@@ -12,7 +12,6 @@ RUN set -ex && \
   apk add \
   --no-cache \
   --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
-  .build-deps \
   nodejs-current \
   curl \
   automake \
@@ -43,7 +42,6 @@ RUN set -ex && \
   && make -j "$(nproc)" \
   && make install \
   \
-  && apk del .build-deps \
   && rm -rf /src
 
 ONBUILD COPY Gemfile* /tmp/
