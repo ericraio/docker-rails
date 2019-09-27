@@ -10,6 +10,7 @@ RUN set -ex && \
   apk \
   --update \
   --no-cache \
+  --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
   add --virtual .build-deps \
   nodejs-current \
   curl \
@@ -22,6 +23,7 @@ RUN set -ex && \
   libtool \
   make \
   git \
+  postgresql \
   postgresql-dev \
   postgresql-libs && \
   wget -O libpostal.tar.gz "$LIBPOSTAL_DOWNLOAD_URL" && \
