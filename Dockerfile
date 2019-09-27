@@ -10,8 +10,9 @@ RUN set -ex && \
   apk upgrade && \
   apk update && \
   apk \
-  add \
+  --no-cache \
   --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
+  add --virtual .build-deps \
   nodejs-current \
   curl \
   automake \
