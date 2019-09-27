@@ -2,19 +2,32 @@ FROM duodealer/ruby:latest
 
 ENV BABEL_ENV production
 ENV RAILS_ENV production
+ARG COMMIT
+ENV COMMIT ${COMMIT:-master}
 
-RUN apk update && \
-  apk upgrade && \
-  apk add \
+RUN mkdir /libpostal/
+COPY ./*.sh /libpostal/
+
+RUN apk \
+  --update \
   --no-cache \
+  add --virtual .build-deps \
   nodejs-current \
   curl \
   automake \
   libtool \
   pkgconfig \
   autoconf \
+  gcc \
+  g++ \
+  libtool \
+  make \
+  git \
   postgresql-dev \
-  postgresql-libs
+  postgresql-libs && \
+  cd /libpostal/ && \
+  git clone https://github.com/openvenues/libpostal -b $COMMIT . && \
+  ./build_libpostal.sh
 
 ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
