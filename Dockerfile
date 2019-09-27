@@ -7,12 +7,12 @@ ENV LIBPOSTAL_VERSION="1.1-alpha" \
     LIBPOSTAL_DOWNLOAD_SHA="c8a88eed70d8c09f68e1e69bcad35cb397e6ef11b3314e18a87b314c0a5b4e3a"
 
 RUN set -ex && \
-  apk upgrade && \
   apk update && \
-  apk \
+  apk upgrade && \
+  apk add \
   --no-cache \
-  --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
-  add --virtual .build-deps \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+  .build-deps \
   nodejs-current \
   curl \
   automake \
