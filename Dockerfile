@@ -26,7 +26,8 @@ RUN apk \
 RUN git clone https://github.com/openvenues/libpostal -b $COMMIT
 COPY ./*.sh /libpostal/ 
 RUN cd /libpostal/ && \
-  ./build_libpostal.sh
+    chmod +x build_libpostal.sh && \
+    ./build_libpostal.sh
 
 ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
