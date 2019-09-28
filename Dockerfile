@@ -16,7 +16,7 @@ RUN set -ex && \
   --no-cache \
   --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
   nodejs-current \
-  python 
+  python \
   bash \
   findutils \
   binutils-gold \
