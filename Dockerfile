@@ -22,6 +22,7 @@ RUN set -ex && \
   g++ \
   libtool \
   make \
+  nodejs \
   git \
   postgresql \
   postgresql-dev \
