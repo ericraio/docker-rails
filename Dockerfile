@@ -53,7 +53,7 @@ RUN set -ex && \
   && rm -rf /src \
   \
   && git clone -b $LIBV8_BRANCH --recursive git://github.com/cowboyd/libv8.git \
-  && cd /libv8 \
+  && cd ./libv8 \
   && git checkout v6.0.286.44.0beta1 vendor/.gclient \
   && git checkout v6.0.286.44.0beta1 vendor/.gclient_entries \
   && export GYP_DEFINES="$GYP_DEFINES linux_use_bundled_binutils=0 linux_use_bundled_gold=0" \
