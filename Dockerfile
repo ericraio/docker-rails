@@ -39,8 +39,8 @@ RUN set -ex && \
   postgresql-dev \
   postgresql-libs \
   \
-  && wget -O libpostal.tar.gz "$LIBPOSTAL_DOWNLOAD_URL" && \
-  echo "$LIBPOSTAL_DOWNLOAD_SHA *libpostal.tar.gz" | sha256sum -c - \
+  && wget -O libpostal.tar.gz "$LIBPOSTAL_DOWNLOAD_URL" \
+  && echo "$LIBPOSTAL_DOWNLOAD_SHA *libpostal.tar.gz" | sha256sum -c - \
   && mkdir -p /src  \
   && mkdir -p /data \
   && tar -xzf libpostal.tar.gz -C /src --strip-components=1 \
@@ -67,7 +67,6 @@ RUN set -ex && \
   && mv /libv8/pkg/libv8-$LIBV8_VERSION.gem /root/pkg/ \
   && gem install mini_racer \
   && cd / \
-  && apk del --purge .builddeps \
   && rm -rf /libv8 /tmp/* /var/tmp/* /var/cache/apk/*QQ /usr/local/bundle/gems/libv8-$LIBV8_VERSION/vendor
 
 RUN apk add libstdc++
