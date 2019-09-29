@@ -1,4 +1,4 @@
-FROM rqelibari/alpine-v8:latest as v8
+FROM m0dprobe/alpine-v8:latest as v8
 FROM duodealer/ruby:latest
 
 ENV BABEL_ENV production
