@@ -1,4 +1,4 @@
-FROM duodealer/ruby:latest
+FROM ruby:2.6.4-alpine3.10
 
 ENV BABEL_ENV production
 ENV RAILS_ENV production
@@ -35,6 +35,7 @@ RUN set -ex && \
   postgresql \
   postgresql-dev \
   postgresql-libs \
+  chromium-chromedriver \
   \
   && wget -O libpostal.tar.gz "$LIBPOSTAL_DOWNLOAD_URL" \
   && echo "$LIBPOSTAL_DOWNLOAD_SHA *libpostal.tar.gz" | sha256sum -c - \
