@@ -36,6 +36,7 @@ RUN set -ex && \
   postgresql-dev \
   postgresql-libs \
   chromium-chromedriver \
+  tzdata \
   \
   && wget -O libpostal.tar.gz "$LIBPOSTAL_DOWNLOAD_URL" \
   && echo "$LIBPOSTAL_DOWNLOAD_SHA *libpostal.tar.gz" | sha256sum -c - \
