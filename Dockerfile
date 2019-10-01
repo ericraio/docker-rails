@@ -31,6 +31,7 @@ RUN set -ex && \
   libtool \
   make \
   nodejs \
+  npm \
   git \
   postgresql \
   postgresql-dev \
@@ -55,7 +56,7 @@ ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
 ONBUILD COPY yarn.lock /tmp/
 ONBUILD WORKDIR /tmp
-ONBUILD RUN bundle install
+ONBUILD RUN bundle install && npm install yarn -g
 
 ONBUILD ENV app /app
 ONBUILD RUN mkdir $app
