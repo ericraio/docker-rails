@@ -50,14 +50,13 @@ RUN set -ex && \
   && ./configure --prefix=/usr --datadir=/data \
   && make -j "$(nproc)" \
   && make install \
-  && rm -rf /src \
-  && npm install yarn -g 
+  && rm -rf /src
 
 ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
 ONBUILD COPY yarn.lock /tmp/
 ONBUILD WORKDIR /tmp
-ONBUILD RUN bundle install
+ONBUILD RUN bundle install && npm install yarn -g 
 
 ONBUILD ENV app /app
 ONBUILD RUN mkdir $app
