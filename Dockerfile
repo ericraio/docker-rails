@@ -37,6 +37,7 @@ RUN set -ex && \
   postgresql-dev \
   postgresql-libs \
   chromium-chromedriver \
+  imagemagick \
   tzdata \
   \
   && wget -O libpostal.tar.gz "$LIBPOSTAL_DOWNLOAD_URL" \
