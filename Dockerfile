@@ -57,6 +57,7 @@ ONBUILD COPY Gemfile* /tmp/
 ONBUILD COPY package.json /tmp/
 ONBUILD COPY yarn.lock /tmp/
 ONBUILD WORKDIR /tmp
+ONBUILD RUN echo "gem: --no-document" > ~/.gemrc 
 ONBUILD RUN bundle install && npm install yarn -g 
 
 ONBUILD ENV app /app
