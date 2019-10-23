@@ -30,7 +30,6 @@ RUN set -ex && \
   g++ \
   libtool \
   make \
-  cmake \
   nodejs \
   npm \
   git \
