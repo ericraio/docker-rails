@@ -15,6 +15,7 @@ RUN set -ex && \
   nodejs-current \
   python \
   bash \
+  rsyslog \
   findutils \
   binutils-gold \
   tar \
